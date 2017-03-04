@@ -11,5 +11,5 @@ package modelo;
  * @author aluno
  */
 public class Configuracoes {
-    
+    public static int numero;
 }
