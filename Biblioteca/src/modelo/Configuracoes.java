@@ -8,8 +8,9 @@ package modelo;
 
 /**
  *
- * @author aluno
+ * @author Vanderlea
  */
 public class Configuracoes {
     public static int numero;
+     public static boolean conectado;
 }
