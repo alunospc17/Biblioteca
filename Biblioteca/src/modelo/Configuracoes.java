@@ -12,5 +12,6 @@ package modelo;
  */
 public class Configuracoes {
     public static int numero;
-     public static boolean conectado;
+    public static boolean conectado;
+    public static boolean atualizarLivroId_emprestimo;
 }
