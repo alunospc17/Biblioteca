@@ -6,6 +6,18 @@
 
 package visao.livros;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import modelo.ConexaoBD;
+import modelo.GerarTabela;
+
 /**
  *
  * @author Francislene
@@ -17,7 +29,87 @@ public class GerenciarLivros extends javax.swing.JFrame {
      */
     public GerenciarLivros() {
         initComponents();
+        PreencherTabela();
     }
+     private void PreencherTabela(){
+        ArrayList linhas = new ArrayList();
+        String[] colunas = new String[] { 
+            "id",
+            "genero",
+            "titulo",
+            "autor",
+            "prateleira"
+        
+        };
+        String query = "Select * from livros";
+        int tamanho = 0;       
+        ConexaoBD con = ConexaoBD.getConexao();        
+        ResultSet rs = con.consultaSql(query);
+        
+        try {
+            while(rs.next()){
+                linhas.add(new Object[]{
+                    rs.getString("id"),
+                    rs.getString("genero"),
+                    rs.getString("titulo"),
+                    rs.getString("autor"),
+                    rs.getString("prateleira")
+                });
+                tamanho++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GerenciarLivros.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao preencher a tabela! "+ex);
+        }
+        
+        GerarTabela modelo = new GerarTabela(linhas, colunas);
+        jTableLivros.setModel(modelo);
+        for(int i=0;i<colunas.length;i++){
+            if(colunas[i].length()<=8){                
+                jTableLivros.getColumnModel().getColumn(i).setPreferredWidth(colunas[i].length()*25);
+            }else if(colunas[i].length()>8 && colunas[i].length()<=15){
+                jTableLivros.getColumnModel().getColumn(i).setPreferredWidth(colunas[i].length()*20);
+            }else{
+               jTableLivros.getColumnModel().getColumn(i).setPreferredWidth(colunas[i].length()*15);
+            }
+            /*jTableUsuario.getColumnModel().getColumn(0).setMinWidth(0);     
+            jTableUsuario.getColumnModel().getColumn(0).setPreferredWidth(0);  
+            jTableUsuario.getColumnModel().getColumn(0).setMaxWidth(0);
+            jTableUsuario.getColumnModel().getColumn(0).setResizable(false);*/
+            //System.out.println("Indice: "+i+" - "+ colunas[i].length());
+        }
+        jTableLivros.getTableHeader().setReorderingAllowed(false);
+        jTableLivros.setAutoResizeMode(jTableLivros.AUTO_RESIZE_OFF);
+        jTableLivros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        //duplo click
+        jTableLivros.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                    if(e.getClickCount() == 2){
+                        //System.out.println("duplo-clique detectado");
+                       // AlterarInfo();
+                    }
+                }
+            }); 
+        con.fecharConexao();
+       
+    }
+/*private void AlterarInfo(){
+        if(jTableLivros.getSelectedRow()>=0)//verifica se a linha a ser alterada esta marcada
+        {
+            int linha = jTableLivros.getSelectedRow();
+            String id = jTableLivros.getValueAt(linha, 0).toString();
+            String nome = jTableLivros.getValueAt(linha, 1).toString();
+            String data_nasc = jTableLivros.getValueAt(linha, 2).toString();
+            String sexo = jTableLivros.getValueAt(linha, 3).toString();
+            String cargo = jTableLivros.getValueAt(linha, 4).toString();
+            String salario = jTableLivros.getValueAt(linha, 5).toString();
+
+            new AlterarLivros (id, gênero, título, autor, cargo, salario).setVisible(true);
+            dispose();
+        }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
+    }*/
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +125,7 @@ public class GerenciarLivros extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableLivros = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -47,7 +139,7 @@ public class GerenciarLivros extends javax.swing.JFrame {
 
         jButton1.setText("Buscar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -59,12 +151,17 @@ public class GerenciarLivros extends javax.swing.JFrame {
                 "ID", "Gênero", "Título", "Autor", "Quantidade", "Prateleira"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
+        jScrollPane1.setViewportView(jTableLivros);
+        if (jTableLivros.getColumnModel().getColumnCount() > 0) {
+            jTableLivros.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jButton2.setText("Emprestar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Cadastrar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +235,11 @@ public class GerenciarLivros extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -185,7 +287,7 @@ public class GerenciarLivros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableLivros;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

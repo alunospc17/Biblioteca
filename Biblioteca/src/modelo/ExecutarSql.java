@@ -28,7 +28,7 @@ public class ExecutarSql {
             try
             {
                 //System.out.println("SQL= "+comando);
-                ConexaoBD conexao = ConexaoBD.getConexao(0);
+                ConexaoBD conexao = ConexaoBD.getConexao();
                 Statement stmt = ConexaoBD.con.createStatement();
                 stmt.executeUpdate(comando);
                 stmt.close();
@@ -57,7 +57,7 @@ public class ExecutarSql {
         
         //System.out.printf("UpdateForno: "+query);
         try {
-            ConexaoBD conexao = ConexaoBD.getConexao(0);
+            ConexaoBD conexao = ConexaoBD.getConexao();
             Statement stmt = ConexaoBD.con.createStatement();
             stmt.executeUpdate(query);
             stmt.close();

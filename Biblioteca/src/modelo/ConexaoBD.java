@@ -22,12 +22,12 @@ public class ConexaoBD {
     private String usuario_bd = "";
     private String senha_bd = "";
 
-    private ConexaoBD(int index)
+    private ConexaoBD()
     {
         //System.err.println("ConexaoBD: "+ index);        
         hostname ="localhost";
         host ="localhost/";
-        database = "biblioteca";
+        database = "bibliotecaej";
         url = "jdbc:mysql://"+host+database;
         usuario_bd = "root";
         senha_bd = "qwe123";
@@ -46,12 +46,12 @@ public class ConexaoBD {
         }
     }
 
-    public static ConexaoBD getConexao(int index)
+    public static ConexaoBD getConexao()
     {
         try
         {
             if(con == null){
-               instancia = new ConexaoBD(index);
+               instancia = new ConexaoBD();
             }
             return instancia;
         }catch( Exception ex ){

@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import visao.livros.GerenciarLivros;
+
 /**
  *
  * @author Cristiano GD
@@ -16,6 +18,8 @@ public class Biblioteca {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        GerenciarLivros gl=new GerenciarLivros();
+                gl.setVisible(true) ;
     }
     
 }
