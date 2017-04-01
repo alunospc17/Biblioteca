@@ -32,15 +32,15 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
          initComponents();
     }
     
-    /*private void PreencherTabela(){
+    private void PreencherTabela(){
         ArrayList linhas = new ArrayList();
         String[] colunas = new String[] { 
-            "id",
-            "nome",
-            "data_de_nascimento",
-            "sexo",
-            "cargo",
-            "salario"
+            "Id",
+            "Login",
+            "Tipo",
+            "Upc_Op",
+            "Nome",
+           
         };
         String query = "Select * from funcionarios";
         int tamanho = 0;       
@@ -51,16 +51,16 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
             while(rs.next()){
                 linhas.add(new Object[]{
                     rs.getString("id"),
+                    rs.getString("login"),
+                    rs.getString("tipo"),
+                    rs.getString("upc_op"),
                     rs.getString("nome"),
-                    rs.getString("data_de_nascimento"),
-                    rs.getString("sexo"),
-                    rs.getString("cargo"),
-                    rs.getString("salario")
+                    
                 });
                 tamanho++;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Gerenciar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GerenciarEmprestimos.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Erro ao preencher a tabela! "+ex);
         }
         
@@ -106,7 +106,7 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
             new Alterar(id, nome, data_de_nascimento, sexo, cargo, salario).setVisible(true);
             dispose();
         }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
-    }*/
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
