@@ -16,11 +16,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import modelo.ConexaoBD;
+import modelo.Configuracoes;
 import modelo.GerarTabela;
+import visao.emprestimos.CadastrarEmprestimos;
 
 /**
  *
- * @author Francislene
+ * @author Francislene, Dauane ,Cristiano GD
  */
 public class GerenciarLivros extends javax.swing.JFrame {
 
@@ -38,8 +40,10 @@ public class GerenciarLivros extends javax.swing.JFrame {
             "genero",
             "titulo",
             "autor",
-            "prateleira"
-        
+            "prateleira",
+            "bibliotecario",
+            "data",
+            "situacao"
         };
         String query = "Select * from livros where titulo like '%"+jTextFieldBuscar.getText()+"%'";
         int tamanho = 0;       
@@ -53,7 +57,10 @@ public class GerenciarLivros extends javax.swing.JFrame {
                     rs.getString("genero"),
                     rs.getString("titulo"),
                     rs.getString("autor"),
-                    rs.getString("prateleira")
+                    rs.getString("prateleira"),
+                    rs.getString("bibliotecario"),
+                    rs.getString("data"),
+                    rs.getString("situacao")
                 });
                 tamanho++;
             }
@@ -94,21 +101,36 @@ public class GerenciarLivros extends javax.swing.JFrame {
         con.fecharConexao();
        
     }
-/*private void AlterarInfo(){
+private void EditarInfoLivro(){
         if(jTableLivros.getSelectedRow()>=0)//verifica se a linha a ser alterada esta marcada
         {
             int linha = jTableLivros.getSelectedRow();
             String id = jTableLivros.getValueAt(linha, 0).toString();
-            String nome = jTableLivros.getValueAt(linha, 1).toString();
-            String data_nasc = jTableLivros.getValueAt(linha, 2).toString();
-            String sexo = jTableLivros.getValueAt(linha, 3).toString();
-            String cargo = jTableLivros.getValueAt(linha, 4).toString();
-            String salario = jTableLivros.getValueAt(linha, 5).toString();
+            String genero = jTableLivros.getValueAt(linha, 1).toString();
+            String titulo = jTableLivros.getValueAt(linha, 2).toString();
+            String autor = jTableLivros.getValueAt(linha, 3).toString();
+            String prateleira = jTableLivros.getValueAt(linha, 4).toString();
+            String bibliotecario = jTableLivros.getValueAt(linha, 5).toString();
+            String data = jTableLivros.getValueAt(linha, 6).toString();
+            String situacao = jTableLivros.getValueAt(linha, 7).toString();
 
-            new AlterarLivros (id, gênero, título, autor, cargo, salario).setVisible(true);
+            new AlterarLivros (id, genero, titulo, autor, prateleira, bibliotecario, data, situacao).setVisible(true);
             dispose();
         }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
-    }*/
+    }
+
+private void EmprestarLivro(){
+        if(jTableLivros.getSelectedRow()>=0)//verifica se a linha a ser alterada esta marcada
+        {
+            int linha = jTableLivros.getSelectedRow();
+            Configuracoes.id_livro = jTableLivros.getValueAt(linha, 0).toString();
+            String titulo = jTableLivros.getValueAt(linha, 2).toString();
+            Configuracoes.situacao_livro = "emprestado";
+            Configuracoes.atualizarLivroId_emprestimo=true;
+            new CadastrarEmprestimos (titulo).setVisible(true);
+            dispose();
+        }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
+    }
     
 
     /**
@@ -176,6 +198,11 @@ public class GerenciarLivros extends javax.swing.JFrame {
         });
 
         jButton4.setText("Alterar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Remover");
 
@@ -237,18 +264,23 @@ public class GerenciarLivros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        CadastrarLivros cl = new CadastrarLivros();
+        cl.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
+        EmprestarLivro();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         PreencherTabela();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        EditarInfoLivro();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

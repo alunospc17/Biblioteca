@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Mar-2017 às 19:50
+-- Generation Time: 01-Abr-2017 às 13:56
 -- Versão do servidor: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `biblioteca`
+-- Database: `bibliotecaej`
 --
 
 -- --------------------------------------------------------
@@ -29,11 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `emprestimos` (
   `id` int(6) NOT NULL,
   `nome_aluno` varchar(45) NOT NULL,
-  `serie_aluno` varchar(45) NOT NULL,
-  `nome_livro` varchar(45) NOT NULL,
-  `data_emprestimos` timestamp NOT NULL,
-  `data_devolucao` timestamp NOT NULL
+  `serie_aluno` varchar(45) DEFAULT NULL,
+  `nome_livro` varchar(45) DEFAULT NULL,
+  `data_emprestimos` timestamp NULL DEFAULT NULL,
+  `data_devolucao` timestamp NULL DEFAULT NULL,
+  `devolvido` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `emprestimos`
+--
+
+INSERT INTO `emprestimos` (`id`, `nome_aluno`, `serie_aluno`, `nome_livro`, `data_emprestimos`, `data_devolucao`, `devolvido`) VALUES
+(1, 'local', NULL, NULL, NULL, NULL, NULL),
+(2, 'cristiano', 'GOT', 'Item 1', '2017-03-10 03:00:00', '2017-03-17 03:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -47,11 +56,17 @@ CREATE TABLE `livros` (
   `titulo` varchar(45) NOT NULL,
   `autor` varchar(45) NOT NULL,
   `prateleira` varchar(45) NOT NULL,
-  `quantidade` varchar(45) NOT NULL,
   `bibliotecario` varchar(45) NOT NULL,
   `data` timestamp NOT NULL,
-  `emprestimos_id` int(6) NOT NULL DEFAULT '0'
+  `situacao` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `livros`
+--
+
+INSERT INTO `livros` (`id`, `genero`, `titulo`, `autor`, `prateleira`, `bibliotecario`, `data`, `situacao`) VALUES
+(1, 'Ação', 'GOT', 'MARTIM', '1', 'eu', '2017-03-30 18:35:47', 'emprestado');
 
 --
 -- Indexes for dumped tables
@@ -67,28 +82,22 @@ ALTER TABLE `emprestimos`
 -- Indexes for table `livros`
 --
 ALTER TABLE `livros`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_livros_emprestimos_idx` (`emprestimos_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `emprestimos`
+--
+ALTER TABLE `emprestimos`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `livros`
 --
 ALTER TABLE `livros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `livros`
---
-ALTER TABLE `livros`
-  ADD CONSTRAINT `fk_livros_emprestimos` FOREIGN KEY (`emprestimos_id`) REFERENCES `emprestimos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

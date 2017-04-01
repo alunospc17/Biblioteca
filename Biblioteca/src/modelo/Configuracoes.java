@@ -8,10 +8,11 @@ package modelo;
 
 /**
  *
- * @author Vanderlea
+ * @author Vanderlea, Cristiano GD
  */
 public class Configuracoes {
-    public static int numero;
+    public static String id_livro;
     public static boolean conectado;
     public static boolean atualizarLivroId_emprestimo;
+    public static String situacao_livro;
 }

@@ -15,28 +15,32 @@ import java.util.Date;
 
 /**
  *
- * @author aluno
+ * @author Weverton, Cristiano GD
  */
 public class CadastrarEmprestimos extends javax.swing.JFrame {
 
     /**
      * Creates new form cadastrar
      */
-    public CadastrarEmprestimos() {
+    public CadastrarEmprestimos(String titulo) {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        jTextFieldLivro.setText(titulo);
+    }    
+
+    public CadastrarEmprestimos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
      private void Registraremprestimos(){
-        String sql="INSERT INTO `bibliotecaej`.`emprestimos` (`id`, `nome_aluno`, `serie_aluno`, `nome_livro`, "
-                + "`data_emprestimos`, `data_devolucao`) VALUES "
-                + "(NULL,"
+        String sql="INSERT INTO emprestimos (id, nome_aluno, serie_aluno, nome_livro, data_emprestimos, data_devolucao, devolvido) "
+                + "VALUES (NULL,"
                 + " '"+jTextFieldNome.getText()+"',"
                 + " '"+jTextFieldLivro.getText()+"',"
                 + " '"+jComboBoxSerie.getSelectedItem()+"',"
                 + " '2017-03-10 00:00:00',"
-                + " '2017-03-17 00:00:00')";
+                + " '2017-03-17 00:00:00'"
+                + "'nao')";
       
          InserirEmprestimos inserirEmprestimos = new InserirEmprestimos(sql);
          

@@ -8,15 +8,19 @@ package visao.livros;
 
 /**
  *
- * @author Francislene
+ * @author Francislene, Dauane, Cristiano GD
  */
 public class AlterarLivros extends javax.swing.JFrame {
 
     /**
      * Creates new form Cadastrar
      */
-    public AlterarLivros() {
+    public AlterarLivros(String id, String genero, String titulo, String autor, String prateleira, String bibliotecario, String data, String situacao) {
         initComponents();
+    }
+
+    private AlterarLivros() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -37,14 +41,12 @@ public class AlterarLivros extends javax.swing.JFrame {
         jTextFieldAutor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSpinnerPrateleira = new javax.swing.JSpinner();
-        jLabel6 = new javax.swing.JLabel();
-        jSpinnerQuantidade = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Cadastrar");
+        jLabel1.setText("Alterar");
 
         jLabel2.setText("Título:");
 
@@ -54,9 +56,7 @@ public class AlterarLivros extends javax.swing.JFrame {
 
         jLabel5.setText("Prateleira:");
 
-        jLabel6.setText("Quantidade:");
-
-        jButton1.setText("Cadastrar");
+        jButton1.setText("Salvar");
 
         jButton2.setText("Voltar");
 
@@ -93,10 +93,6 @@ public class AlterarLivros extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerPrateleira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addGap(66, 66, 66)
                                 .addComponent(jButton2)))))
@@ -123,11 +119,7 @@ public class AlterarLivros extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jSpinnerPrateleira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jSpinnerQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)))
@@ -180,9 +172,7 @@ public class AlterarLivros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JSpinner jSpinnerPrateleira;
-    private javax.swing.JSpinner jSpinnerQuantidade;
     private javax.swing.JTextField jTextFieldAutor;
     private javax.swing.JTextField jTextFieldGenero;
     private javax.swing.JTextField jTextFieldTitulo;

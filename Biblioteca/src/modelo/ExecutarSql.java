@@ -51,9 +51,9 @@ public class ExecutarSql {
     }
     
     private void AtualizarLivroId_emprestimo(){
-        String query = "UPDATE forno SET "
-                + "`situacao_forno` = '"+0
-                + "' WHERE id_forno = "+0;
+        String query = "UPDATE livros SET "
+                + "`situacao` = '"+Configuracoes.situacao_livro
+                + "' WHERE id = "+Configuracoes.id_livro;
         
         //System.out.printf("UpdateForno: "+query);
         try {
@@ -69,8 +69,10 @@ public class ExecutarSql {
     }
     
     public void LimparDados(){
-        Configuracoes.conectado=false;
+        //Configuracoes.conectado=false;
         Configuracoes.atualizarLivroId_emprestimo=false;
+        Configuracoes.id_livro="";
+        Configuracoes.situacao_livro="";
         JOptionPane.showMessageDialog(null, "Configurações padrão!");
     }
 }

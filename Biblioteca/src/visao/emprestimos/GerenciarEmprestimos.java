@@ -20,7 +20,7 @@ import modelo.GerarTabela;
 
 /**
  *
- * @author weverton
+ * @author Weverton, Ney, Vanderlea
  */
 public class GerenciarEmprestimos extends javax.swing.JFrame {
 
@@ -32,7 +32,7 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
          initComponents();
     }
     
-    private void PreencherTabela(){
+    /*private void PreencherTabela(){
         ArrayList linhas = new ArrayList();
         String[] colunas = new String[] { 
             "Id",
@@ -106,7 +106,7 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
             new Alterar(id, nome, data_de_nascimento, sexo, cargo, salario).setVisible(true);
             dispose();
         }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
