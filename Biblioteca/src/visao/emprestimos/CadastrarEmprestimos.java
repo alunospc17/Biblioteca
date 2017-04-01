@@ -1,6 +1,7 @@
 package visao.emprestimos;
 
 import controle.emprestimos.Emprestimos;
+import controle.emprestimos.InserirEmprestimos;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,15 +27,25 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }
     
-    private void Registraremprestimos(){
-        DateFormat data_emprestimo = new SimpleDateFormat("YYYY/MM/DD hh:mm:ss");
-        Date date = new Date();
-        Emprestimos emp = new Emprestimos();
-        emp.setNome_emprestimo(jTextFieldNome.getText());
-        emp.setLivro_emprestimo(jTextFieldLivro.getText());
-        emp.setSerie_emprestimo((String) jComboBoxSerie.getSelectedItem());
-        emp.setData_emprestimo(data_emprestimo.format(date));
+    
+     private void Registraremprestimos(){
+        String sql="INSERT INTO `bibliotecaej`.`emprestimos` (`id`, `nome_aluno`, `serie_aluno`, `nome_livro`, "
+                + "`data_emprestimos`, `data_devolucao`) VALUES "
+                + "(NULL,"
+                + " '"+jTextFieldNome.getText()+"',"
+                + " '"+jTextFieldLivro.getText()+"',"
+                + " '"+jComboBoxSerie.getSelectedItem()+"',"
+                + " '2017-03-10 00:00:00',"
+                + " '2017-03-17 00:00:00')";
+      
+         InserirEmprestimos inserirEmprestimos = new InserirEmprestimos(sql);
+         
+        new GerenciarEmprestimos().setVisible(true);
+        
+        this.setVisible(false);
+        dispose();
     }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +71,12 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
         jLabel1.setText("Cadastrar");
 
         jLabel2.setText("Nome Do Aluno:");
+
+        jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nome Do Livro:");
 
@@ -161,12 +178,17 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxSerieActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    Registraremprestimos();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     /**
      * @param args the command line arguments

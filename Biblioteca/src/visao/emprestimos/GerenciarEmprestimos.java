@@ -6,6 +6,18 @@
 
 package visao.emprestimos;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import modelo.ConexaoBD;
+import modelo.GerarTabela;
+
 /**
  *
  * @author weverton
@@ -19,6 +31,82 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
        
          initComponents();
     }
+    
+    /*private void PreencherTabela(){
+        ArrayList linhas = new ArrayList();
+        String[] colunas = new String[] { 
+            "id",
+            "nome",
+            "data_de_nascimento",
+            "sexo",
+            "cargo",
+            "salario"
+        };
+        String query = "Select * from funcionarios";
+        int tamanho = 0;       
+        ConexaoBD con = ConexaoBD.getConexao(0);        
+        ResultSet rs = con.consultaSql(query);
+        
+        try {
+            while(rs.next()){
+                linhas.add(new Object[]{
+                    rs.getString("id"),
+                    rs.getString("nome"),
+                    rs.getString("data_de_nascimento"),
+                    rs.getString("sexo"),
+                    rs.getString("cargo"),
+                    rs.getString("salario")
+                });
+                tamanho++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Gerenciar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao preencher a tabela! "+ex);
+        }
+        
+        GerarTabela modelo = new GerarTabela(linhas, colunas);
+        jTableFuncionario.setModel(modelo);
+        for(int i=0;i<colunas.length;i++){
+            if(colunas[i].length()<=8){                
+                jTableFuncionario.getColumnModel().getColumn(i).setPreferredWidth(colunas[i].length()*25);
+            }else if(colunas[i].length()>8 && colunas[i].length()<=15){
+                jTableFuncionario.getColumnModel().getColumn(i).setPreferredWidth(colunas[i].length()*20);
+            }else{
+                jTableFuncionario.getColumnModel().getColumn(i).setPreferredWidth(colunas[i].length()*15);
+            }
+            //System.out.println("Indice: "+i+" - "+ colunas[i].length());
+        }
+        jTableFuncionario.getTableHeader().setReorderingAllowed(false);
+        jTableFuncionario.setAutoResizeMode(jTableFuncionario.AUTO_RESIZE_OFF);
+        jTableFuncionario.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        //duplo click
+        jTableFuncionario.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                    if(e.getClickCount() == 2){
+                        //System.out.println("duplo-clique detectado");
+                        AlterarInfo();
+                    }
+                }
+            }); 
+        con.fecharConexao();
+        
+    }
+  private void AlterarInfo(){
+        if(jTableFuncionario.getSelectedRow()>=0)//verifica se a linha a ser alterada esta marcada
+        {
+            int linha = jTableFuncionario.getSelectedRow();
+            String id = jTableFuncionario.getValueAt(linha, 0).toString();
+            String nome = jTableFuncionario.getValueAt(linha, 1).toString();
+            String data_de_nascimento = jTableFuncionario.getValueAt(linha, 2).toString();
+            String sexo = jTableFuncionario.getValueAt(linha, 3).toString();
+            String cargo = jTableFuncionario.getValueAt(linha, 4).toString();
+            String salario = jTableFuncionario.getValueAt(linha, 5).toString();
+
+            new Alterar(id, nome, data_de_nascimento, sexo, cargo, salario).setVisible(true);
+            dispose();
+        }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
