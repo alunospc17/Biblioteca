@@ -39,7 +39,7 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
                 + " '"+jTextFieldLivro.getText()+"',"
                 + " '"+jComboBoxSerie.getSelectedItem()+"',"
                 + " '2017-03-10 00:00:00',"
-                + " '2017-03-17 00:00:00'"
+                + " '2017-03-17 00:00:00',"
                 + "'nao')";
       
          InserirEmprestimos inserirEmprestimos = new InserirEmprestimos(sql);

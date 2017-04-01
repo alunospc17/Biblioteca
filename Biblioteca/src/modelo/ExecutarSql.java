@@ -30,7 +30,13 @@ public class ExecutarSql {
                 //System.out.println("SQL= "+comando);
                 ConexaoBD conexao = ConexaoBD.getConexao();
                 Statement stmt = ConexaoBD.con.createStatement();
+                //looping
+                //if(quantidade)
+                /*for(int i = 1; i<=5; i++){                    
                 stmt.executeUpdate(comando);
+                }*/
+                stmt.executeUpdate(comando);
+                
                 stmt.close();
                 conexao.fecharConexao();
                 if(Configuracoes.atualizarLivroId_emprestimo){

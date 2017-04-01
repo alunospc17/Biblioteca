@@ -13,12 +13,10 @@ import modelo.ExecutarSql;
  * @author Francislene
  */
 public class InserirLivros {
-    public InserirLivros(Livros lv){
-        String query = "INSERT INTO `bibliotecaej`.`livros` (`id`, `genero`, `titulo`, `autor`, `prateleira`, `quantidade`, `bibliotecario`, `data`) VALUES (NULL, 'drama', 'joao e maria', 'cristiano', '12', '10', 'dauane', '2017-03-18 00:00:00')";
-    
+    public InserirLivros(String sql){
+        //System.out.print(sql);
         ExecutarSql execut =  new ExecutarSql();
-        execut.executar(query);
-        //concerta inset e insatanciar o inset no cadastrar
+        execut.executar(sql);        
     }
    
 }

@@ -10,19 +10,12 @@ import modelo.ExecutarSql;
 
 /**
  *
- * @author aluno
+ * @author Dauane, Cristiano GD
  */
 public class InserirEmprestimos {
-   
-
-    
-
     public InserirEmprestimos(String sql) {
-        
-   ExecutarSql execut = new ExecutarSql();
-  execut.executar(sql);
-    }
-    
+        System.out.print(sql);
+        ExecutarSql execut = new ExecutarSql();
+        execut.executar(sql);
+    }   
 }
-
-//
