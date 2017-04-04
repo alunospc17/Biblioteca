@@ -118,22 +118,16 @@
         <Component class="javax.swing.JTable" name="jTableLivros">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="5">
+              <Table columnCount="5" rowCount="5">
                 <Column editable="true" title="ID" type="java.lang.Object"/>
                 <Column editable="true" title="G&#xea;nero" type="java.lang.Object"/>
                 <Column editable="true" title="T&#xed;tulo" type="java.lang.Object"/>
                 <Column editable="true" title="Autor" type="java.lang.Object"/>
-                <Column editable="true" title="Quantidade" type="java.lang.Object"/>
                 <Column editable="true" title="Prateleira" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>

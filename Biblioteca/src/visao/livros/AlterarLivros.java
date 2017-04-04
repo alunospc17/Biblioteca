@@ -6,23 +6,46 @@
 
 package visao.livros;
 
+import controle.livros.AtualizarLivros;
+
 /**
  *
  * @author Francislene, Dauane, Cristiano GD
  */
 public class AlterarLivros extends javax.swing.JFrame {
-
+ private String id;
     /**
      * Creates new form Cadastrar
      */
-    public AlterarLivros(String id, String genero, String titulo, String autor, String prateleira, String bibliotecario, String data, String situacao) {
+    public AlterarLivros(String id, String genero, String titulo, String autor, int prateleira, String bibliotecario, String data, String situacao) {
         initComponents();
+        this.id=id;
+        jTextFieldTitulo.setText(titulo);
+        jTextFieldAutor.setText(autor);
+        jTextFieldGenero.setText(genero);
+        jSpinnerPrateleira.setValue(prateleira);
+        
+        
     }
 
     private AlterarLivros() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+     private void AlterarDados(){
+          
+      String sql = "UPDATE `livros` SET "+
+        "`titulo` = '"+jTextFieldTitulo.getText()+"'," +
+         "`autor` = '"+jTextFieldAutor.getText()+"'," +
+        "`prateleira` = '"+jSpinnerPrateleira.getValue()+"'," +
+          "' WHERE `funcionario`.`id` ='"+id+"'";     
+      
+      
+         AtualizarLivros atualizar = new AtualizarLivros(sql);
+      
+      new visao.livros.GerenciarLivros().setVisible(true);
+     
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -168,19 +168,19 @@ private void EmprestarLivro(){
 
         jTableLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Gênero", "Título", "Autor", "Quantidade", "Prateleira"
+                "ID", "Gênero", "Título", "Autor", "Prateleira"
             }
         ));
         jScrollPane1.setViewportView(jTableLivros);
         if (jTableLivros.getColumnModel().getColumnCount() > 0) {
-            jTableLivros.getColumnModel().getColumn(5).setResizable(false);
+            jTableLivros.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jButton2.setText("Emprestar");
