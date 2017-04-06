@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+import static modelo.Configuracoes.quantidade;
 
 /**
  *
@@ -31,12 +32,13 @@ public class ExecutarSql {
                 ConexaoBD conexao = ConexaoBD.getConexao();
                 Statement stmt = ConexaoBD.con.createStatement();
                 //looping
-                //if(quantidade)
-                /*for(int i = 1; i<=5; i++){                    
+                if(Configuracoes.quantidade >1){
+                for(int i = 1; i<=Configuracoes.quantidade; i++){                    
                 stmt.executeUpdate(comando);
-                }*/
+                }
+              } else{
                 stmt.executeUpdate(comando);
-                
+                }
                 stmt.close();
                 conexao.fecharConexao();
                 if(Configuracoes.atualizarLivroId_emprestimo){

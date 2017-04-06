@@ -15,4 +15,5 @@ public class Configuracoes {
     public static boolean conectado;
     public static boolean atualizarLivroId_emprestimo;
     public static String situacao_livro;
+    public static int quantidade;
 }

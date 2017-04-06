@@ -109,7 +109,7 @@ private void EditarInfoLivro(){
             String genero = jTableLivros.getValueAt(linha, 1).toString();
             String titulo = jTableLivros.getValueAt(linha, 2).toString();
             String autor = jTableLivros.getValueAt(linha, 3).toString();
-            String prateleira = jTableLivros.getValueAt(linha, 4).toString();
+            int prateleira = Integer.valueOf(jTableLivros.getValueAt(linha, 4).toString());
             String bibliotecario = jTableLivros.getValueAt(linha, 5).toString();
             String data = jTableLivros.getValueAt(linha, 6).toString();
             String situacao = jTableLivros.getValueAt(linha, 7).toString();
