@@ -4,12 +4,11 @@
  */
 
 package modelo;
+import controle.livros.Livros;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.showMessageDialog;
-import static modelo.Configuracoes.quantidade;
 
 /**
  *
@@ -33,11 +32,13 @@ public class ExecutarSql {
                 Statement stmt = ConexaoBD.con.createStatement();
                 //looping
                 if(Configuracoes.quantidade >1){
-                for(int i = 1; i<=Configuracoes.quantidade; i++){                    
-                stmt.executeUpdate(comando);
-                }
-              } else{
-                stmt.executeUpdate(comando);
+                    for(int i = 1; i<=Configuracoes.quantidade; i++){                    
+                        stmt.executeUpdate(comando);
+                    }
+                    Configuracoes.quantidade=0;
+                } else{
+                    stmt.executeUpdate(comando);
+                    Configuracoes.quantidade=0;
                 }
                 stmt.close();
                 conexao.fecharConexao();
@@ -81,6 +82,7 @@ public class ExecutarSql {
         Configuracoes.atualizarLivroId_emprestimo=false;
         Configuracoes.id_livro="";
         Configuracoes.situacao_livro="";
+        Configuracoes.quantidade=0;
         JOptionPane.showMessageDialog(null, "Configurações padrão!");
     }
 }

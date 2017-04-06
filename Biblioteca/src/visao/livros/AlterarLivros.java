@@ -8,6 +8,7 @@ package visao.livros;
 
 import controle.livros.AtualizarLivros;
 
+
 /**
  *
  * @author Francislene, Dauane, Cristiano GD
@@ -37,13 +38,14 @@ public class AlterarLivros extends javax.swing.JFrame {
       String sql = "UPDATE `livros` SET "+
         "`titulo` = '"+jTextFieldTitulo.getText()+"'," +
          "`autor` = '"+jTextFieldAutor.getText()+"'," +
-        "`prateleira` = '"+jSpinnerPrateleira.getValue()+"'," +
-          "' WHERE `funcionario`.`id` ='"+id+"'";     
+        "`prateleira` = '"+jSpinnerPrateleira.getValue()+ 
+          "' WHERE `id` ='"+id+"'";     
       
       
          AtualizarLivros atualizar = new AtualizarLivros(sql);
       
-      new visao.livros.GerenciarLivros().setVisible(true);
+      new GerenciarLivros().setVisible(true);
+      this.dispose();
      
      }
     /**
@@ -80,8 +82,18 @@ public class AlterarLivros extends javax.swing.JFrame {
         jLabel5.setText("Prateleira:");
 
         jButton1.setText("Salvar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,6 +162,15 @@ public class AlterarLivros extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       AlterarDados();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new GerenciarLivros().setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

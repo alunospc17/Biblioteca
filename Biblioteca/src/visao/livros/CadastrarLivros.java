@@ -11,6 +11,7 @@ import controle.livros.Livros;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import modelo.Configuracoes;
 
 /**
  *
@@ -35,7 +36,7 @@ public class CadastrarLivros extends javax.swing.JFrame {
         lv.setGenêro_livro(jTextFieldgenero.getText());
         lv.setAutor_livro(jTextFieldautor.getText());
         lv.setPrateleira_livro(jSpinnerprateleira.getValue().toString());
-        //lv.setQuantidade_livro(jSpinnerquantidade.getValue().toString());
+        Configuracoes.quantidade=(int)jSpinnerquantidade.getValue();
         lv.setBibliotecaria_livro("Dauane");
         lv.setData_livro(data_livros.format(data));
         
@@ -48,12 +49,10 @@ public class CadastrarLivros extends javax.swing.JFrame {
                 + " 'eu',"
                 + " '2017-03-17 00:00:00',"
                 + "'livre')";
-      
+        
          InserirLivros livros = new InserirLivros(sql);
          
         new GerenciarLivros().setVisible(true);
-        
-        this.setVisible(false);
         dispose();
     }
 
@@ -98,6 +97,11 @@ public class CadastrarLivros extends javax.swing.JFrame {
         });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,6 +182,11 @@ public class CadastrarLivros extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         RegistrarLivros();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       GerenciarLivros gl = new GerenciarLivros();
+       gl.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

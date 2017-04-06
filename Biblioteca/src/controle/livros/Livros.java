@@ -16,7 +16,6 @@ public class Livros {
     private String título_livro;
     private String autor_livro;
     private String prateleira_livro;
-    private String quantidade_livro;
     private String bibliotecaria_livro;
     private String data_livro;
 
@@ -88,20 +87,6 @@ public class Livros {
      */
     public void setPrateleira_livro(String prateleira_livro) {
         this.prateleira_livro = prateleira_livro;
-    }
-
-    /**
-     * @return the quantidade_livro
-     */
-    public String getQuantidade_livro() {
-        return quantidade_livro;
-    }
-
-    /**
-     * @param quantidade_livro the quantidade_livro to set
-     */
-    public void setQuantidade_livro(String quantidade_livro) {
-        this.quantidade_livro = quantidade_livro;
     }
 
     /**
