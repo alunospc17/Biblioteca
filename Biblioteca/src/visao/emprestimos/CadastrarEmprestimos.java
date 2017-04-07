@@ -42,7 +42,7 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
                 + " '2017-03-17 00:00:00',"
                 + "'nao')";
       
-         InserirEmprestimos inserirEmprestimos = new InserirEmprestimos(sql);
+         InserirEmprestimos InserirEmprestimos = new InserirEmprestimos(sql);
          
         new GerenciarEmprestimos().setVisible(true);
         
@@ -92,7 +92,7 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
 
         jLabel4.setText("Série Do Aluno:");
 
-        jComboBoxSerie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxSerie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "6°ano", "7°ano", "8°ano", "9°ano" }));
         jComboBoxSerie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxSerieActionPerformed(evt);
