@@ -6,6 +6,7 @@
 package modelo;
 
 import visao.livros.GerenciarLivros;
+import visao.login.Login;
 
 /**
  *
@@ -18,8 +19,9 @@ public class Biblioteca {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        GerenciarLivros gl=new GerenciarLivros();
-                gl.setVisible(true) ;
+        Login l=new Login();
+                l.setVisible(true) ;
+                
     }
     
 }

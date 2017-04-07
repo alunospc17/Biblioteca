@@ -115,7 +115,7 @@ private void EditarInfoLivro(){
             String situacao = jTableLivros.getValueAt(linha, 7).toString();
 
             new AlterarLivros (id, genero, titulo, autor, prateleira, bibliotecario, data, situacao).setVisible(true);
-            dispose();
+            this.dispose();
         }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
     }
 
@@ -128,7 +128,7 @@ private void EmprestarLivro(){
             Configuracoes.situacao_livro = "emprestado";
             Configuracoes.atualizarLivroId_emprestimo=true;
             new CadastrarEmprestimos (titulo).setVisible(true);
-            dispose();
+            this.dispose();
         }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
     }
     
@@ -142,6 +142,8 @@ private void EmprestarLivro(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldBuscar = new javax.swing.JTextField();
@@ -152,6 +154,16 @@ private void EmprestarLivro(){
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -206,6 +218,35 @@ private void EmprestarLivro(){
 
         jButton5.setText("Remover");
 
+        jMenu1.setText("Menu");
+
+        jMenuItem2.setText("Emprestimos");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem4.setText("Logout");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Sobre");
+
+        jMenuItem5.setText("Desenvolvido pelos alunos Dauane, Francislene e Lúcios do Pronatec 2015-2017 da Escola Estadual Emílio Jardim.");
+        jMenu2.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -251,7 +292,7 @@ private void EmprestarLivro(){
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
@@ -281,6 +322,20 @@ private void EmprestarLivro(){
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         EditarInfoLivro();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    visao.emprestimos.GerenciarEmprestimos gerenciar=new visao.emprestimos.GerenciarEmprestimos();
+    gerenciar.setVisible(true);
+    this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    visao.login.Login login=new visao.login.Login();
+    login.setVisible(true); 
+     this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,6 +383,14 @@ private void EmprestarLivro(){
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLivros;
     private javax.swing.JTextField jTextFieldBuscar;
