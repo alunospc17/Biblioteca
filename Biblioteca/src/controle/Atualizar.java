@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package controle.emprestimos;
+package controle;
 
 import modelo.ExecutarSql;
 
@@ -12,11 +12,10 @@ import modelo.ExecutarSql;
  *
  * @author aluno
  */
-public class AtualizarEmprestimo {
-    public AtualizarEmprestimo(String sql) {
-        System.out.println(sql);
-        ExecutarSql execut = new ExecutarSql();
-        
+public class Atualizar {
+    public Atualizar(String sql) {
+        //System.out.println(sql);
+        ExecutarSql execut = new ExecutarSql();        
         execut.executar(sql);
     }
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package controle.emprestimos;
+package controle;
 
 import modelo.ExecutarSql;
 
@@ -12,8 +12,8 @@ import modelo.ExecutarSql;
  *
  * @author Dauane, Cristiano GD
  */
-public class InserirEmprestimos {
-    public InserirEmprestimos(String sql) {
+public class Inserir {
+    public Inserir(String sql) {
         System.out.print(sql);
         ExecutarSql execut = new ExecutarSql();
         execut.executar(sql);

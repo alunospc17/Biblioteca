@@ -16,10 +16,6 @@ public class ConexaoBD {
     public static Connection con = null;    
     
     public static String hostname = "";
-
-    public static ConexaoBD getConexao(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     private String host = "";
     private String database = "";
     private String url = "";
@@ -34,7 +30,7 @@ public class ConexaoBD {
         database = "bibliotecaej";
         url = "jdbc:mysql://"+host+database;
         usuario_bd = "root";
-        senha_bd = "qwe123";
+        senha_bd = "";
         //JOptionPane.showMessageDialog(null, "Conectando ao bd localhost!");
         try
         {

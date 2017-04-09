@@ -4,7 +4,7 @@
  */
 
 package modelo;
-import controle.livros.Livros;
+import controle.Livros;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +19,7 @@ public class ExecutarSql {
     public void executar(String comando){
         int n = JOptionPane.showConfirmDialog(  
                     null,
-                    "Continuar?!" ,
+                    Configuracoes.mensagem ,
                     "",
                     JOptionPane.YES_NO_OPTION);
 
@@ -80,9 +80,10 @@ public class ExecutarSql {
     public void LimparDados(){
         //Configuracoes.conectado=false;
         Configuracoes.atualizarLivroId_emprestimo=false;
+        Configuracoes.mensagem = "Continuar!?";
         Configuracoes.id_livro="";
         Configuracoes.situacao_livro="";
         Configuracoes.quantidade=0;
-        JOptionPane.showMessageDialog(null, "Configurações padrão!");
+        //JOptionPane.showMessageDialog(null, "Configurações padrão!");
     }
 }

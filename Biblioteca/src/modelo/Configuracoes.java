@@ -17,5 +17,6 @@ public class Configuracoes {
     public static String situacao_livro;
     public static int quantidade;
     public static String login_usuario;
-    public static String tipo_usuario;
+    public static String tipo_usuario;    
+    public static String mensagem = "Continuar!?";
 }

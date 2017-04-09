@@ -6,46 +6,42 @@
 
 package visao.emprestimos;
 
-import controle.emprestimos.AtualizarEmprestimo;
+import controle.Atualizar;
+import modelo.Configuracoes;
 
 /**
  *
- * @author aluno
+ * @author Cristiano GD
  */
 public class AlterarEmprestimo extends javax.swing.JFrame {
    private String id;
    
     /**
      * Creates new form AlterarEmprestimo
+     * @param id
+     * @param nomeAluno
+     * @param nomeLivro
+     * @param serieAluno
      */
-  public AlterarEmprestimo(String nomedoaluno,String nomedolivro, String seriedoaluno) {
+  public AlterarEmprestimo(String id, String nomeAluno,String nomeLivro, String serieAluno) {
         initComponents();
-        this.id= id;
-        
-        jTextFieldnomedoaluno.setText(nomedoaluno);
-        jTextFieldnomedolivro.setText(nomedolivro);
-        jComboBoxseriedoaluno.setSelectedItem(seriedoaluno);
-        
+        this.id= id;        
+        jTextFieldNomeAluno.setText(nomeAluno);
+        jTextFieldNomeLivro.setText(nomeLivro);
+        jComboBoxSerieAluno.setSelectedItem(serieAluno);
     }
-
-    AlterarEmprestimo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    private void AlterarDados(){
-      
-        
+    
+    private void AlterarDados(){  
        String sql ="UPDATE `emprestimos` SET "
-               + "`nome` = '"+jTextFieldnomedoaluno.getText()+"'," +   
-                "`nome_livro` = '"+jTextFieldnomedolivro.getText()+"'," +
-                "`serie` = '"+jComboBoxseriedoaluno.getSelectedItem()+"'," + 
-                "' WHERE `id` ="+id ;
-                
+               + "`nome` = '"+jTextFieldNomeAluno.getText()+"'," +   
+                "`nome_livro` = '"+jTextFieldNomeLivro.getText()+"'," +
+                "`serie` = '"+jComboBoxSerieAluno.getSelectedItem()+"'," + 
+                "`id_livro` = '"+Configuracoes.id_livro+"'," +
+                "' WHERE `id` ="+id ;                
         
-        AtualizarEmprestimo atualizar = new AtualizarEmprestimo(sql);
+        Atualizar atualizar = new Atualizar(sql);
         new GerenciarEmprestimos().setVisible(true);
         this.dispose();
-        
-        
     }
 
     /**
@@ -61,46 +57,66 @@ public class AlterarEmprestimo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldnomedoaluno = new javax.swing.JTextField();
-        jTextFieldnomedolivro = new javax.swing.JTextField();
-        jComboBoxseriedoaluno = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jTextFieldNomeAluno = new javax.swing.JTextField();
+        jTextFieldNomeLivro = new javax.swing.JTextField();
+        jComboBoxSerieAluno = new javax.swing.JComboBox();
+        jButtonSalvar = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Alterar");
+        jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+4));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Alterar Emprestimo");
+        jLabel1.setPreferredSize(new java.awt.Dimension(100, 25));
 
+        jLabel2.setFont(jLabel2.getFont().deriveFont(jLabel2.getFont().getSize()+1f));
         jLabel2.setText("Nome do Aluno:");
+        jLabel2.setPreferredSize(new java.awt.Dimension(100, 25));
 
+        jLabel3.setFont(jLabel3.getFont().deriveFont(jLabel3.getFont().getSize()+1f));
         jLabel3.setText("Nome do Livro:");
+        jLabel3.setPreferredSize(new java.awt.Dimension(100, 25));
 
+        jLabel4.setFont(jLabel4.getFont().deriveFont(jLabel4.getFont().getSize()+1f));
         jLabel4.setText("Serie do Aluno:");
+        jLabel4.setPreferredSize(new java.awt.Dimension(100, 25));
 
-        jTextFieldnomedolivro.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNomeAluno.setFont(jTextFieldNomeAluno.getFont().deriveFont(jTextFieldNomeAluno.getFont().getSize()+1f));
+        jTextFieldNomeAluno.setPreferredSize(new java.awt.Dimension(100, 25));
+
+        jTextFieldNomeLivro.setFont(jTextFieldNomeLivro.getFont().deriveFont(jTextFieldNomeLivro.getFont().getSize()+1f));
+        jTextFieldNomeLivro.setPreferredSize(new java.awt.Dimension(100, 25));
+        jTextFieldNomeLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldnomedolivroActionPerformed(evt);
+                jTextFieldNomeLivroActionPerformed(evt);
             }
         });
 
-        jComboBoxseriedoaluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "6°ano", "7°ano", "8°ano", "9°ano", " " }));
-        jComboBoxseriedoaluno.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxSerieAluno.setFont(jComboBoxSerieAluno.getFont().deriveFont(jComboBoxSerieAluno.getFont().getSize()+1f));
+        jComboBoxSerieAluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "6°ano", "7°ano", "8°ano", "9°ano", " " }));
+        jComboBoxSerieAluno.setPreferredSize(new java.awt.Dimension(100, 25));
+        jComboBoxSerieAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxseriedoalunoActionPerformed(evt);
+                jComboBoxSerieAlunoActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Alterar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalvar.setFont(jButtonSalvar.getFont().deriveFont(jButtonSalvar.getFont().getSize()+4f));
+        jButtonSalvar.setText("Salvar");
+        jButtonSalvar.setPreferredSize(new java.awt.Dimension(200, 50));
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSalvarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltar.setFont(jButtonVoltar.getFont().deriveFont(jButtonVoltar.getFont().getSize()+4f));
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.setPreferredSize(new java.awt.Dimension(200, 50));
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
 
@@ -109,75 +125,71 @@ public class AlterarEmprestimo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(137, 137, 137)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldnomedoaluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextFieldnomedolivro))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(jComboBoxseriedoaluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 121, Short.MAX_VALUE))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jComboBoxSerieAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNomeLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNomeAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldnomedoaluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldnomedolivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxSerieAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jComboBoxseriedoaluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(35, 35, 35))
+                    .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     AlterarDados();
-     
-     // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        AlterarDados();
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         new GerenciarEmprestimos().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    private void jComboBoxseriedoalunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxseriedoalunoActionPerformed
+    private void jComboBoxSerieAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSerieAlunoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxseriedoalunoActionPerformed
+    }//GEN-LAST:event_jComboBoxSerieAlunoActionPerformed
 
-    private void jTextFieldnomedolivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldnomedolivroActionPerformed
+    private void jTextFieldNomeLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeLivroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldnomedolivroActionPerformed
+    }//GEN-LAST:event_jTextFieldNomeLivroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,22 +219,20 @@ public class AlterarEmprestimo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AlterarEmprestimo().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AlterarEmprestimo(null, null, null, null).setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBoxseriedoaluno;
+    private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JComboBox jComboBoxSerieAluno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextFieldnomedoaluno;
-    private javax.swing.JTextField jTextFieldnomedolivro;
+    private javax.swing.JTextField jTextFieldNomeAluno;
+    private javax.swing.JTextField jTextFieldNomeLivro;
     // End of variables declaration//GEN-END:variables
 }
