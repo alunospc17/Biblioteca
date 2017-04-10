@@ -30,7 +30,7 @@ public class ConexaoBD {
         database = "bibliotecaej";
         url = "jdbc:mysql://"+host+database;
         usuario_bd = "root";
-        senha_bd = "";
+        senha_bd = "qwe123";
         //JOptionPane.showMessageDialog(null, "Conectando ao bd localhost!");
         try
         {

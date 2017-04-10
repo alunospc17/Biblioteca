@@ -127,17 +127,7 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
             new AlterarUsuario(id, login, tipo).setVisible(true);
             dispose();
         }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
-    }
-    
-    private void ExcluirInfo(){
-        if(jTableUsuario.getSelectedRow()>=0) {
-            int linha = jTableUsuario.getSelectedRow();
-            String id_usuario = jTableUsuario.getValueAt(linha, 0).toString();
-            new ExcluirUsuario(id_usuario).setVisible(true);
-            this.setVisible(false);
-            dispose();
-        }else JOptionPane.showMessageDialog(null, "Selecione uma linha!");
-    }  
+    } 
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -153,7 +143,6 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
         jTableUsuario = new javax.swing.JTable();
         jButtonCadastrar = new javax.swing.JButton();
         jButtonAlterar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabelNome = new javax.swing.JLabel();
         jMenuBar5 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
@@ -189,15 +178,6 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAlterarActionPerformed(evt);
-            }
-        });
-
-        jButton4.setFont(jButton4.getFont().deriveFont(jButton4.getFont().getSize()+4f));
-        jButton4.setText("Excluir");
-        jButton4.setPreferredSize(new java.awt.Dimension(200, 50));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
             }
         });
 
@@ -247,18 +227,17 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -273,7 +252,6 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
@@ -303,10 +281,6 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
         AlterarInfo();
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //ExcluirInfo();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jMenuItemLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLivrosActionPerformed
         GerenciarLivros gl = new GerenciarLivros();
         gl.setVisible(true);
@@ -317,17 +291,18 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
     * @param args the command line arguments
     */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            try {
-                new GerenciarUsuarios().setVisible(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(GerenciarUsuarios.class.getName()).log(Level.SEVERE, null, ex);               
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new GerenciarUsuarios().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(GerenciarUsuarios.class.getName()).log(Level.SEVERE, null, ex);               
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JLabel jLabel1;

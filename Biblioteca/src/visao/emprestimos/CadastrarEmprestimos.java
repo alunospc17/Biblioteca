@@ -118,7 +118,7 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
         });
 
         jComboBoxSerieAluno.setFont(jComboBoxSerieAluno.getFont().deriveFont(jComboBoxSerieAluno.getFont().getSize()+1f));
-        jComboBoxSerieAluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "6°ano", "7°ano", "8°ano", "9°ano", " " }));
+        jComboBoxSerieAluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "6°ano", "7°ano", "8°ano", "9°ano", "1°ano", "2°ano", "3°ano" }));
         jComboBoxSerieAluno.setPreferredSize(new java.awt.Dimension(100, 25));
         jComboBoxSerieAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,8 +257,10 @@ public class CadastrarEmprestimos extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new CadastrarEmprestimos(null).setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CadastrarEmprestimos(null).setVisible(true);
+            }
         });
     }
 

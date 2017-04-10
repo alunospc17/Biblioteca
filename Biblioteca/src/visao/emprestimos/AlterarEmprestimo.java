@@ -219,8 +219,10 @@ public class AlterarEmprestimo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
             new AlterarEmprestimo(null, null, null, null).setVisible(true);
+            }
         });
     }
 
