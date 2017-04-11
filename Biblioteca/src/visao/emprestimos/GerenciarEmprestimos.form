@@ -56,8 +56,11 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Desenvolvido pelos alunos Dauane, Francislene e L&#xfa;cios do Pronatec 2015-2017 da Escola Estadual Em&#xed;lio Jardim."/>
+                <Property name="text" type="java.lang.String" value="Info"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -92,13 +95,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jButtonDevolver" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="76" max="32767" attributes="0"/>
-                      <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jButtonAlterar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" pref="740" max="32767" attributes="0"/>
                   <Component id="jLabelNome" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -117,7 +118,6 @@
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonDevolver" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -175,22 +175,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButtonCadastrar">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-          <FontInfo relative="true">
-            <Font component="jButtonCadastrar" property="font" relativeSize="true" size="4"/>
-          </FontInfo>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Cadastrar"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 50]"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastrarActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">

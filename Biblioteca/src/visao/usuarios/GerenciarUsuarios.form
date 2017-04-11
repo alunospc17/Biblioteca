@@ -40,10 +40,13 @@
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Desenvolvido pelos alunos Dauane, Francislene e L&#xfa;cios do Pronatec 2015-2017 da Escola Estadual Em&#xed;lio Jardim."/>
+                <Property name="text" type="java.lang.String" value="Info"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -77,14 +80,12 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="jLabel1" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jLabelNome" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="jButtonAlterar" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Component id="jLabelNome" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jButtonAlterar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>

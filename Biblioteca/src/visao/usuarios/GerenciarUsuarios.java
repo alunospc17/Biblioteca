@@ -44,7 +44,7 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
         CarregarNome();
     } 
     private void CarregarNome(){
-        jLabelNome.setText(Configuracoes.login_usuario);
+        jLabelNome.setText("Olá, "+Configuracoes.login_usuario);
         PreencherTabela();
     } 
     
@@ -150,7 +150,7 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
         jMenuItemLivros = new javax.swing.JMenuItem();
         jMenuItemLogout = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -216,8 +216,13 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
 
         jMenu6.setText("Sobre");
 
-        jMenuItem8.setText("Desenvolvido pelos alunos Dauane, Francislene e Lúcios do Pronatec 2015-2017 da Escola Estadual Emílio Jardim.");
-        jMenu6.add(jMenuItem8);
+        jMenuItem5.setText("Info");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem5);
 
         jMenuBar5.add(jMenu6);
 
@@ -231,13 +236,12 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -287,6 +291,12 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItemLivrosActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        JOptionPane.showMessageDialog(null, "Desenvolvido por PRONATEC-Técnico em Informática 2015-2017"
+            + "\nAlunos: Dauane, Darciney, Francislene, Lúcios, Talles, Vanderléa, Weverton."
+            + "\nEscola Estadual Emílio Jardim.");
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -310,7 +320,7 @@ public class GerenciarUsuarios extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar5;
-    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItemEmprestimos;
     private javax.swing.JMenuItem jMenuItemLivros;
     private javax.swing.JMenuItem jMenuItemLogout;

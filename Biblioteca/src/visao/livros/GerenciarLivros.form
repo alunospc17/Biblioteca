@@ -50,10 +50,13 @@
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Desenvolvido pelos alunos Dauane, Francislene e L&#xfa;cios do Pronatec 2015-2017 da Escola Estadual Em&#xed;lio Jardim."/>
+                <Property name="text" type="java.lang.String" value="Info"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

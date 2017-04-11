@@ -176,7 +176,7 @@ private void EmprestarLivro(){
         jMenuItemUsuarios = new javax.swing.JMenuItem();
         jMenuItemLogout = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -271,8 +271,13 @@ private void EmprestarLivro(){
 
         jMenu2.setText("Sobre");
 
-        jMenuItem5.setText("Desenvolvido pelos alunos Dauane, Francislene e Lúcios do Pronatec 2015-2017 da Escola Estadual Emílio Jardim.");
-        jMenu2.add(jMenuItem5);
+        jMenuItem6.setText("Info");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
 
         jMenuBar1.add(jMenu2);
 
@@ -367,6 +372,12 @@ private void EmprestarLivro(){
         this.dispose();
     }//GEN-LAST:event_jMenuItemUsuariosActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        JOptionPane.showMessageDialog(null, "Desenvolvido por PRONATEC-Técnico em Informática 2015-2017"
+            + "\nAlunos: Dauane, Darciney, Francislene, Lúcios, Talles, Vanderléa, Weverton."
+            + "\nEscola Estadual Emílio Jardim.");
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -418,7 +429,7 @@ private void EmprestarLivro(){
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItemEmprestimos;
     private javax.swing.JMenuItem jMenuItemLogout;
     private javax.swing.JMenuItem jMenuItemUsuarios;
