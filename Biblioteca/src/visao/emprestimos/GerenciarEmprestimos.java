@@ -53,8 +53,8 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
         String[] colunas = new String[] { 
             "id",
             "nome_aluno",
-            "serie_aluno",
             "nome_livro",
+            "serie_aluno",
             "data_emprestimo",
             "data_devolucao",
             "devolvido",  
@@ -132,6 +132,7 @@ public class GerenciarEmprestimos extends javax.swing.JFrame {
             Configuracoes.atualizarLivroId_emprestimo = true;
             Configuracoes.situacao_livro = "livre";
             Configuracoes.id_livro = jTableEmprestimos.getValueAt(linha, 7).toString();
+            Configuracoes.mensagem = "O codigo do livro é "+ Configuracoes.id_livro + "!\nEstá correto?";
             Atualizar atualizar = new Atualizar(sql);
 
             new GerenciarEmprestimos().setVisible(true);
