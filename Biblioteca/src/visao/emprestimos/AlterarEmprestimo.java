@@ -36,11 +36,9 @@ public class AlterarEmprestimo extends javax.swing.JFrame {
     
     private void AlterarDados(){  
        String sql ="UPDATE `emprestimos` SET "
-               + "`nome` = '"+jTextFieldNomeAluno.getText()+"'," +   
-                "`nome_livro` = '"+titulo+"'," +
-                "`serie` = '"+jComboBoxSerieAluno.getSelectedItem()+"'," + 
-                "`id_livro` = '"+Configuracoes.id_livro+"'," +
-                "' WHERE `id` ="+id ;                
+               + "`nome_aluno` = '"+jTextFieldNomeAluno.getText()+"'," +
+                "`serie_aluno` = '"+jComboBoxSerieAluno.getSelectedItem()+"'" +
+                " WHERE `id` ="+id ;                
         
         Atualizar atualizar = new Atualizar(sql);
         new GerenciarEmprestimos().setVisible(true);

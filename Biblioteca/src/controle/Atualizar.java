@@ -14,7 +14,7 @@ import modelo.ExecutarSql;
  */
 public class Atualizar {
     public Atualizar(String sql) {
-        //System.out.println(sql);
+        System.out.println(sql);
         ExecutarSql execut = new ExecutarSql();        
         execut.executar(sql);
     }
